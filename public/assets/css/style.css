@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+html,body {
+    height:100%;
+    margin:0;
+}
+
+header {
+    background-color: gold;
+}
+
+footer,.push {
+    height:100px;
+}
+
+.wrapper {
+min-height:100%;
+margin-bottom: -50px;
+}
+
+.card-panel,.card{
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: gold;
+}
+
+.bg-blue {
+    background-color: darkcyan;
+}
