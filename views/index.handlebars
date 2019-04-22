@@ -6,19 +6,50 @@
 <section>
     <div class="row">
         <div class="col s12">
+            {{#each result}}
             <div id="articles" class="card-panel">
-                <p class="center-align">Articles will be placed here.</p>
+                <div class="row">
+                    <div class="col s12 l10">
+                        <a href={{url}}>
+                            <h4 class="card-title">{{headline}}</h4>
+                        </a>
+                        <h6>{{byline}}</h6>
+                        <h6>Published: {{pubDate}}</h6>
+                        <h6>{{description}}</h6>
+                    </div>
+                    <div class="col s12 l2">
+                        <button data-id={{_id}} class="save btn">Save Article</button>
+                    </div>
+                </div>
+
             </div>
+            {{/each}}
+            {{!-- <div id="articles" class="card-panel">
+                <p class="center-align">Articles will be placed here.</p>
+            </div> --}}
         </div>
     </div>
 
     <div class="row">
         <div class="col s12">
-            <div id="articles" class="card">
+            <div id="actions" class="card">
                 <p class="card-title center-align">What would like to do?</p>
-                <p class="center-align">Scrape Current Articles</p>
-                <p class="center-align">View Saved Articles</p>
+                <a class="scrape center-align">
+                    <p class="center-align">Scrape Current Articles</p>
+                </a>
+                <p class="center-align"><a href="/saved" class="saved">View Saved Articles</a></p>
             </div>
         </div>
     </div>
 </section>
+<div id="modal1" class="modal">
+    <div class="modal-content" id="modal-header">
+        <h4>Message</h4>
+        <div id="modal-body">
+
+        </div>
+    </div>
+    {{!-- <div class="modal-footer">
+                        <a href="#!" class="modal-close bigButton btn-large">Agree</a>
+                    </div> --}}
+</div>

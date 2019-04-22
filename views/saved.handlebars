@@ -1,0 +1,73 @@
+<div class="container">
+    <section>
+        <h1 class="center-align">Chicago Reader Scraper</h1>
+    </section>
+</div>
+<section id="notes">
+    <div id="modalNote" class="modal">
+        <div class="modal-content" id="modal-header">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="title" type="text">
+                            <label for="input_text">Title</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea" class="materialize-textarea"></textarea>
+                            <label for="textarea">Note</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="submit-button btn modal-close" type="submit" id="submit">Submit Note</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{!-- <div class="modal-footer">
+                        <a href="#!" class="modal-close bigButton btn-large">Agree</a>
+                    </div> --}}
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col s12">
+            {{#each result}}
+            <div id="articles" class="card-panel">
+                <div class="row">
+                    <div class="col s12 l10">
+                        <a href={{url}}>
+                            <h4 class="card-title">{{headline}}</h4>
+                        </a>
+                        <h6>{{byline}}</h6>
+                        <h6>Published: {{pubDate}}</h6>
+                        <h6>{{description}}</h6>
+                    </div>
+                    <div class="col s12 l2">
+                        <button data-id={{_id}} class="remove btn">Remove</button>
+                        <a href="#modalNote" data-id={{_id}} class="btn modal-trigger">Make Notes</a>
+                    </div>
+                </div>
+
+            </div>
+            {{/each}}
+            {{!-- <div id="articles" class="card-panel">
+                <p class="center-align">Articles will be placed here.</p>
+            </div> --}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div id="actions" class="card">
+                <h5 class="card-title center-align">What would like to do?</h5>
+                <a class="scrape center-align">
+                    <h5 class="center-align">Scrape Current Articles</h5>
+                </a>
+                <h5 class="center-align"><a class="saved">View Saved Articles</a></h5>
+            </div>
+        </div>
+    </div>
+</section>

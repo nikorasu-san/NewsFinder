@@ -4,10 +4,11 @@ var exphbs = require("express-handlebars");
 var app = express();
 var PORT = process.env.PORT || 8080;
 var logger = require("morgan");
+var mongoose = require("mongoose");
 
 
-// database requires all models in folder
-//var db = require("./models");
+
+
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -22,8 +23,21 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
-// e.g. require("./routes/html-routes.js")(app);
 require("./controller/controller.js")(app);
+
+// DB connection
+//mongoose.connect('mongodb://localhost/newsscraper', { useNewUrlParser: true });
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
+var connect = mongoose.connection;
+connect.on('error', console.error.bind(console, 'connection error:'));
+connect.once('open', function () {
+    console.log("DB connected!")
+});
 
 // Don't run app unless we have db sync
 app.listen(PORT, function () {

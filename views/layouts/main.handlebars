@@ -15,25 +15,45 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Stuff</title>
+    <title>Reader Scraper</title>
 </head>
 <div class="wrapper">
 
-    <header>
-        {{!-- <div class="container"> --}}
-        <div class="row">
-            <div class="col l6">
-                <h5>Mongo Scraper</h5>
+    <nav>
+        <header>
+            {{!-- <div class="row">
+                <div class="col l3">
+                    <h5>Mongo Scraper</h5>
+                </div>
+                <div class="col l9 right-align">
+                    <h5>
+                        <a><span>Clear Saved</span></a>
+                        <span>Saved Articles</span>
+                        <span>Scrape Articles</span>
+
+                    </h5>
+                </div>
+            </div> --}}
+            <div class="row">
+                <div class="nav-wrapper">
+                    <div class="col l3">
+                        <h5><a href="/">Mongo Scraper</a></h5>
+                    </div>
+                    <div class="col l9">
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="#">Clear Saved</a></li>
+                            <li><a href="/saved">Saved Articles</a></li>
+                            <li><a href="/scrape">Scrape Articles</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col l6 right-align">
-                <h5>Buttons here</h5>
-            </div>
-        </div>
-        {{!-- </div> --}}
-    </header>
+        </header>
+    </nav>
 
     <body>
         {{{body}}}
+
 </div>
 <div class="push"></div>
 <footer class="page-footer">
@@ -44,6 +64,7 @@
         </div>
     </div>
 </footer>
+<script src="/assets/javascript/front.js"></script>
 </body>
 
 

@@ -25,6 +25,25 @@ margin-bottom: -50px;
     background-color: gold;
 }
 
+.card-content {
+    background-color: beige;
+}
+
 .bg-blue {
     background-color: darkcyan;
+}
+
+button,.btn {
+    height: auto;
+    margin: 2%;
+    width: 100%;
+}
+
+.footer-button,.submit-button {
+    width: auto!important;
+    margin: 0%;
+}
+
+h4 {
+    margin-top: 0!important;
 }
