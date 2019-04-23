@@ -31,8 +31,11 @@ module.exports = function (app) {
                 result.byline = $(this).find(".byline").text().trim();
                 result.pubDate = $(this).find(".date").text().trim();
                 // result.link = $(this)
+
+                db.Article.init().then(function(err, data) {
+                    if (err) console.log(err);
                 // create articles
-                db.Article.create(result)
+                return db.Article.create(result)
                     .then(function (dbArticle) {
                         // View the added result in the console
                         console.log(dbArticle);
@@ -41,7 +44,9 @@ module.exports = function (app) {
                     .catch(function (err) {
                         // If an error occurred, log it
                         console.log(err);
+                        res.redirect("/")
                     });
+                });
             });
         });
 

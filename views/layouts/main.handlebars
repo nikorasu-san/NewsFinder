@@ -8,6 +8,8 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
@@ -37,19 +39,26 @@
             <div class="row">
                 <div class="nav-wrapper">
                     <div class="col l3">
-                        <h5><a href="/">Home</a></h5>
+                        <h5><a href="/" class="nav-text">Home</a></h5>
                     </div>
                     <div class="col l9">
+
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="/clear">Clear Saved</a></li>
-                            <li><a href="/saved">Saved Articles</a></li>
-                            <li><a href="/scrape">Scrape Articles</a></li>
+                            <li><a href="/clear" class="nav-text">Clear Articles</a></li>
+                            <li><a href="/saved" class="nav-text">View Saved</a></li>
+                            <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
                         </ul>
+                              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     </div>
                 </div>
             </div>
         </header>
     </nav>
+                <ul id="mobile-demo" class="sidenav">
+                            <li><a href="/clear" class="nav-text">Clear Articles</a></li>
+                            <li><a href="/saved" class="nav-text">Saved Articles</a></li>
+                            <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
+                        </ul>
 
     <body>
         {{{body}}}

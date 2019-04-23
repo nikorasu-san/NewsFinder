@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $(".modal").modal();
+    $('.sidenav').sidenav();
 
     // click scrape new articles button/text
     $(document).on("click", ".scrape", function (event) {
@@ -17,6 +18,8 @@ $(document).ready(function () {
     // click saved article
     $(document).on("click", ".save", function (event) {
         event.preventDefault();
+        var instance = M.Modal.getInstance($("#modal1"));
+
         console.log("clicked save")
         // take id from button, send to controller
         console.log($(this).data("id"))
@@ -24,7 +27,7 @@ $(document).ready(function () {
         $.post("/save/" + id, function (data) {
             console.log(data)
             // open message modal
-            $(".modal").modal();
+            instance.open();
             $("#modal-body").empty();
             $("#modal-body").append(`<p class="">${data.message}</p>`);
         })

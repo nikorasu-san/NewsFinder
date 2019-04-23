@@ -6,8 +6,12 @@ html,body {
     margin:0;
 }
 
-header {
+header,nav{
     background-color: gold;
+}
+
+.nav-text,i {
+    color: black;
 }
 
 footer,.push {
