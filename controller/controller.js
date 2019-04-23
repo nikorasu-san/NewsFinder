@@ -1,6 +1,6 @@
 var axios = require("axios");
 var cheerio = require("cheerio");
-var mongoose = require("mongoose");
+//var mongoose = require("mongoose");
 // database requires all models in folder
 var db = require("../models");
 
@@ -15,6 +15,7 @@ module.exports = function (app) {
     });
 
     app.get("/scrape", function (req, res) {
+        // ping the archive page on Chicago Reader website
         axios.get("https://www.chicagoreader.com/chicago/ArticleArchives").then(function (response) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             var $ = cheerio.load(response.data);
@@ -23,22 +24,14 @@ module.exports = function (app) {
                 var result = {};
 
 
-                // Add the text and href of every link, and save them as properties of the result object
+                // Add the text, href, description, byline, and publish date of every article in archive
                 result.headline = $(this).find(".headline").children("a").text();
                 result.url = $(this).find(".headline").children("a").attr("href");
                 result.description = $(this).find(".subhead").text().trim();
                 result.byline = $(this).find(".byline").text().trim();
                 result.pubDate = $(this).find(".date").text().trim();
                 // result.link = $(this)
-                //     .children("a")
-                //     .attr("href");
-                // console.log($(this).find("strong").text())
-                console.log("headline:", $(this).find(".headline").children("a").text())
-                console.log("url:", $(this).find(".headline").children("a").attr("href"))
-                console.log("description:", $(this).find(".subhead").text().trim())
-                console.log("byline:", $(this).find(".byline").text().trim())
-                // console.log("section:", $(this).find(".sectionDateInfo").children("strong").text().trim())
-                console.log("date:", $(this).find(".date").text().trim())
+                // create articles
                 db.Article.create(result)
                     .then(function (dbArticle) {
                         // View the added result in the console
@@ -109,5 +102,18 @@ module.exports = function (app) {
                 console.log(err);
             });
     });
+
+    app.get("/clear", function (req, res) {
+        //let id = req.params.id;
+        // take id and query for document then make saved true
+        db.Article.remove({})
+            .then(function (article) {
+                console.log(article);
+                // res.json({ message: 'This article has been removed' })
+                res.redirect("/")
+            }).catch(function (err) {
+                console.log(err);
+            });
+    })
 
 }

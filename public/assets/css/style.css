@@ -47,3 +47,18 @@ button,.btn {
 h4 {
     margin-top: 0!important;
 }
+
+.page-footer{
+    background-color: darkgrey;
+    color: white;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+}
+
+#actions {
+    background-color: black;
+    color: white;
+}
