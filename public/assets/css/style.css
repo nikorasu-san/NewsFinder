@@ -43,7 +43,7 @@ h5 {
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 5%;
-    background-color: gold;
+    background-color: #ffd700eb;
     box-shadow: 6px 5px 5px darkgoldenrod;
 }
 
@@ -61,7 +61,10 @@ button,.btn {
     margin: 2%;
     width: 100%;
     box-shadow: 3px 3px 3px grey;
+}
 
+.btn:hover {
+    background-color: #039be5;
 }
 
 .footer-button,.submit-button {
@@ -84,7 +87,8 @@ h4 {
 }
 
 #actions {
-    background-color: black;
+    background-color: #20231bde;
     color: white;
     box-shadow: 6px 5px 5px darkgrey;
+    padding: 1%;
 }

@@ -34,6 +34,7 @@
                         <div class="col l9">
 
                             <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li><a href="#modalHelp" class="nav-text modal-trigger">Guide</a></li>
                                 <li><a href="/clear" class="nav-text">Clear Articles</a></li>
                                 <li><a href="/saved" class="nav-text">View Saved</a></li>
                                 <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
@@ -46,11 +47,30 @@
             </header>
         </nav>
         <ul id="mobile-demo" class="sidenav">
+            <li><a href="#modalHelp" class="nav-text modal-trigger">Guide</a></li>
             <li><a href="/clear" class="nav-text">Clear Articles</a></li>
             <li><a href="/saved" class="nav-text">Saved Articles</a></li>
             <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
         </ul>
-
+        <div id="modalHelp" class="modal">
+            <div class="modal-content" id="modal-header">
+                <h4>Welcome to the Chicago Reader Scraper!</h4>
+                <div id="modal-body">
+                    This simple app will pull articles from my favorite local news source.<br/>
+                    <ol>
+                    <li>Press "Scrape Articles" to pull new articles for the homepage.</li>
+                    <li>Each new card will represent an article from the Chicago Reader site for you to interact with.</li>
+                    <li>Press "Save Article" to store an article for the "saved" view.</li>
+                    <li>Press "View Saved" to see all saved articles. The cards now have two new options.</li>
+                    <li>Press "Remove" to remove an article from the saved view.</li>
+                    <li>Press "Make Notes" for the ability to make or edit a note for the respective article.</li>
+                    <li>Press "Clear Articles" to clear out all the articles on the home page and saved view.</li>
+                    </ol>
+                    Please note that clearing, saving, and notes are public for all visitors.
+                    <br/><br/>Thanks for playing nice.
+                </div>
+            </div>
+        </div>
         {{{body}}}
 
 </div>
