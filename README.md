@@ -2,7 +2,7 @@
 Objective: Create a web app that lets users view and leave comments on the latest news. Flex your Mongoose and Cheerio muscles to scrape news from another site.
 
 ## Overview
-This web app gives users the ability to pull, save, and make notes for recent articles posted on the Chicago Reader website. 
+This web app gives users the ability to pull, save, and make notes for recent articles posted on the Chicago Reader website (https://www.chicagoreader.com/chicago/ArticleArchives). 
 
 Live Link - https://shrouded-crag-80261.herokuapp.com/
 
