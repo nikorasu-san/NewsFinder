@@ -9,7 +9,8 @@ var db = require("../models");
 module.exports = function (app) {
 
     app.get("/", function (req, res) {
-        db.Article.find({}, function (err, data) {
+        // find all articles and sort pubDate in reverse order. sort solution should be revisited
+        db.Article.find({}, null, { sort: { pubDate: -1 } }, function (err, data) {
             res.render("index", { result: data });
         })
     });
@@ -30,22 +31,21 @@ module.exports = function (app) {
                 result.description = $(this).find(".subhead").text().trim();
                 result.byline = $(this).find(".byline").text().trim();
                 result.pubDate = $(this).find(".date").text().trim();
-                // result.link = $(this)
 
-                db.Article.init().then(function(err, data) {
+                db.Article.init().then(function (err, data) {
                     if (err) console.log(err);
-                // create articles
-                return db.Article.create(result)
-                    .then(function (dbArticle) {
-                        // View the added result in the console
-                        console.log(dbArticle);
-                        res.redirect("/");
-                    })
-                    .catch(function (err) {
-                        // If an error occurred, log it
-                        console.log(err);
-                        res.redirect("/")
-                    });
+                    // create articles
+                    return db.Article.create(result)
+                        .then(function (dbArticle) {
+                            // View the added result in the console
+                            console.log(dbArticle);
+                            res.redirect("/");
+                        })
+                        .catch(function (err) {
+                            // If an error occurred, log it
+                            console.log(err);
+                            res.redirect("/")
+                        });
                 });
             });
         });
@@ -56,16 +56,19 @@ module.exports = function (app) {
         let id = req.params.id
         // take id and query for document then make saved true
         db.Article.findByIdAndUpdate({ _id: id }, { saved: true }, { new: true })
+            // send message to front end modal
             .then(function (article) {
                 console.log(article);
                 res.json({ message: "This is now a saved article" })
             }).catch(function (err) {
                 console.log(err);
+                res.json({ message: err })
             });
     });
 
     app.get("/saved", function (req, res) {
-        db.Article.find({ saved: true }, function (err, data) {
+        // send only saved articles to front end
+        db.Article.find({ saved: true }, null, { sort: { pubDate: -1 } }, function (err, data) {
             res.render("saved", { result: data });
         })
     })
@@ -79,6 +82,7 @@ module.exports = function (app) {
                 res.json({ message: 'This article has been removed' })
             }).catch(function (err) {
                 console.log(err);
+                res.json({ message: err })
             });
     })
 
@@ -87,7 +91,6 @@ module.exports = function (app) {
         db.Article.findById(id).populate("note")
             .then(function (dbNote) {
                 console.log(dbNote);
-
                 res.json(dbNote)
             })
             .catch(function (err) {
@@ -109,12 +112,11 @@ module.exports = function (app) {
     });
 
     app.get("/clear", function (req, res) {
-        //let id = req.params.id;
-        // take id and query for document then make saved true
+        // remove all articles in the collection
         db.Article.remove({})
             .then(function (article) {
                 console.log(article);
-                // res.json({ message: 'This article has been removed' })
+                // refresh page
                 res.redirect("/")
             }).catch(function (err) {
                 console.log(err);

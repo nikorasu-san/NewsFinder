@@ -58,6 +58,7 @@ $(document).ready(function () {
         $.get("/article/" + articleId).then(function (data) {
             console.log(data);
             // put title and body in form
+
             $("#title").val(data.note.title);
             $("#textarea").val(data.note.body);
         })

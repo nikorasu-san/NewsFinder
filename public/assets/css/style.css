@@ -6,11 +6,16 @@ html,body {
     margin:0;
 }
 
+body {
+    background-image: url("../images/neonreader.jpg");
+    background-size: cover;
+}
+
 header,nav{
     background-color: gold;
 }
 
-.nav-text,i {
+.nav-text,i,.date-text {
     color: black;
 }
 
@@ -23,11 +28,25 @@ min-height:100%;
 margin-bottom: -50px;
 }
 
+h1 {
+    margin-bottom: 27%;
+    margin-top: 20%;
+    font-size: 80px;
+    color: gold;
+    text-shadow: 5px 5px 5px darkgoldenrod;
+}
+
+h5 {
+    margin-left: 7%;
+}
 .card-panel,.card{
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 5%;
     background-color: gold;
+    box-shadow: 6px 5px 5px darkgoldenrod;
 }
+
 
 .card-content {
     background-color: beige;
@@ -41,6 +60,8 @@ button,.btn {
     height: auto;
     margin: 2%;
     width: 100%;
+    box-shadow: 3px 3px 3px grey;
+
 }
 
 .footer-button,.submit-button {
@@ -53,7 +74,7 @@ h4 {
 }
 
 .page-footer{
-    background-color: darkgrey;
+    background-color: gold;
     color: white;
 }
 
@@ -65,4 +86,5 @@ h4 {
 #actions {
     background-color: black;
     color: white;
+    box-shadow: 6px 5px 5px darkgrey;
 }

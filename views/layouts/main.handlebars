@@ -21,9 +21,10 @@
 </head>
 <div class="wrapper">
 
-    <nav>
-        <header>
-            {{!-- <div class="row">
+    <body>
+        <nav>
+            <header>
+                {{!-- <div class="row">
                 <div class="col l3">
                     <h5>Mongo Scraper</h5>
                 </div>
@@ -36,31 +37,33 @@
                     </h5>
                 </div>
             </div> --}}
-            <div class="row">
-                <div class="nav-wrapper">
-                    <div class="col l3">
-                        <h5><a href="/" class="nav-text">Home</a></h5>
-                    </div>
-                    <div class="col l9">
+                <div class="row">
+                    <div class="nav-wrapper">
+                        <div class="col l3">
+                            <h5><a href="/" class="nav-text">Home</a></h5>
 
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="/clear" class="nav-text">Clear Articles</a></li>
-                            <li><a href="/saved" class="nav-text">View Saved</a></li>
-                            <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
-                        </ul>
-                              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        </div>
+                        <div class="col l9">
+
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li><a href="/clear" class="nav-text">Clear Articles</a></li>
+                                <li><a href="/saved" class="nav-text">View Saved</a></li>
+                                <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
+                            </ul>
+                            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                                    class="material-icons">menu</i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
-    </nav>
-                <ul id="mobile-demo" class="sidenav">
-                            <li><a href="/clear" class="nav-text">Clear Articles</a></li>
-                            <li><a href="/saved" class="nav-text">Saved Articles</a></li>
-                            <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
-                        </ul>
+            </header>
+        </nav>
+        <ul id="mobile-demo" class="sidenav">
+            <li><a href="/clear" class="nav-text">Clear Articles</a></li>
+            <li><a href="/saved" class="nav-text">Saved Articles</a></li>
+            <li><a href="/scrape" class="nav-text">Scrape Articles</a></li>
+        </ul>
 
-    <body>
+        {{!-- <body> --}}
         {{{body}}}
 
 </div>

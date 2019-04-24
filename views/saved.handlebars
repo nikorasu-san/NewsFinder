@@ -11,13 +11,16 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="title" type="text">
-                            <label for="input_text">Title</label>
+                            <label class="title-label" for="title"></label>
+                            <span class="helper-text">Title</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea id="textarea" class="materialize-textarea"></textarea>
-                            <label for="textarea">Note</label>
+                            <label class="textarea-label" for="textarea"></label>
+                            <span class="helper-text">Note Text</span>
+
                         </div>
                     </div>
                     <div class="row">
@@ -26,9 +29,6 @@
                 </form>
             </div>
         </div>
-        {{!-- <div class="modal-footer">
-                        <a href="#!" class="modal-close bigButton btn-large">Agree</a>
-                    </div> --}}
     </div>
 </section>
 <section>
@@ -53,9 +53,7 @@
 
             </div>
             {{/each}}
-            {{!-- <div id="articles" class="card-panel">
-                <p class="center-align">Articles will be placed here.</p>
-            </div> --}}
+
         </div>
     </div>
 
